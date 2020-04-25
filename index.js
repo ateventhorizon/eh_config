@@ -1,5 +1,5 @@
 class GlobalConfig {
-  constructor(lMongoDBUser, lMongoDBPass, lMongoDBURI, lMongoDBdbName, lMongoDBReplicaSetName, lJWTSecret, lSendGrid, lCloudHost, lTokenCookie, lAntiForgeryTokenCookie, lJwtExpiresSeconds, lReactHost) {
+  constructor(lMongoDBUser, lMongoDBPass, lMongoDBURI, lMongoDBdbName, lMongoDBReplicaSetName, lJWTSecret, lSendGrid, lCloudHost, lTokenCookie, lAntiForgeryTokenCookie, lJwtExpiresSeconds, lReactHost, lFileRoot) {
     this.MongoDBUser = lMongoDBUser;
     this.MongoDBPass = lMongoDBPass;
     this.MongoDBURI = lMongoDBURI;
@@ -12,6 +12,11 @@ class GlobalConfig {
     this.AntiForgeryTokenCookie = lAntiForgeryTokenCookie;
     this.JwtExpiresSeconds = Number(lJwtExpiresSeconds);
     this.ReactHost = lReactHost
+    this.fileRoot = lFileRoot
+  }
+
+  get FileRoot() {
+    return this.fileRoot;
   }
 
   get JWTSecret() {
@@ -36,6 +41,7 @@ const gc = new GlobalConfig(
   , process.env.EH_ANTIFORGERYTOKEN_COOKIE
   , process.env.EH_JWT_EXPIRES_SECONDS
   , process.env.REACT_APP_EH_CLOUD_HOST
+  , process.env.EH_FILE_ROOT
 );
 
 module.exports = gc;

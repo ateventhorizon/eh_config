@@ -1,6 +1,6 @@
 {
   "name": "eh_config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "all config thingies for event horizon",
   "main": "index.js",
   "scripts": {
